@@ -1,0 +1,22 @@
+{
+  "name": "generate-my-readme",
+  "version": "1.0.0",
+  "description": "README Generator\u001b[D\u001b[C",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damienluzzo33/Generate-My-README.git"
+  },
+  "author": "Damien Luzzo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damienluzzo33/Generate-My-README/issues"
+  },
+  "homepage": "https://github.com/damienluzzo33/Generate-My-README#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
