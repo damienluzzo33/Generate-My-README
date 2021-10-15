@@ -7,9 +7,12 @@ let renderedC = "";
 let renderedT = "";
 // Create function to render screenshots from the user entries
 function renderScreenshots(array) {
+    // as long as the array is not empty
     if (array.length !== 0) {
+        // add subheader
         renderedSS = renderedSS + `Screenshots:
         `
+        // for each screenshot in the array, extract the data and concat the data to the renderedSS string
         for (let screenshot of array) {
             let name = screenshot.ssReference;
             let path = screenshot.ssPath;
@@ -20,9 +23,12 @@ function renderScreenshots(array) {
 };
 // Create function to render collaborator data
 function renderCollaborators(array) {
+    // as long as the array is not empty
     if (array.length !== 0) {
+        // add subheader
         renderedC = renderedC + `Collaborators:
         `
+        // for each collaborator in the array, extract the data and concat the data to the renderedC string
         for (let collaborator of array) {
             let name = collaborator.cName;
             let path = collaborator.cLink;
@@ -34,9 +40,12 @@ function renderCollaborators(array) {
 };
 // Create function to render asset data
 function renderAssets(array) {
+    // as long as the array is not empty
     if (array.length !== 0) {
+        // add subheader
         renderedA = renderedA + `Assets:
         `
+        // for each asset in the array, extract the data and concat the data to the renderedA string
         for (let asset of array) {
             let name = asset.assetName;
             let author = asset.assetAuthor;
@@ -49,9 +58,12 @@ function renderAssets(array) {
 };
 // Create function to render tutorials
 function renderTutorials(array) {
+    // as long as the array is not empty
     if (array.length !== 0) {
+        // add subheader
         renderedT = renderedT + `Tutorials:
         `
+        // for each tutorial in the array, extract the data and concat the data to the renderedT string
         for (let tutorial of array) {
             let text = tutorial.ref;
             let path = tutorial.path;

@@ -3,14 +3,13 @@ let inquirer = require('inquirer');
 let generateMarkdown = require('./utils/generateMD');
 let fs = require('fs');
 let fileName = "README.md";
-
 // Define global variables
 let screenShots = [];
 let allCollaborators = [];
 let allAssets = [];
 let tutorialsArr = [];
 let allData = [];
-
+// define first set of questions to be passed in when init function runs inquirer.prompt()
 const questions = [
 	{
 		type: 'input',
@@ -55,15 +54,15 @@ const questions = [
 		validate: validator
     }
 ];
-
 // create function for generalized validation for questions that are required for the README
 function validator(response) {
-	let validation = isNaN(response) ? true : 'This response is required! Try again!'
+    // Make sure the response is not a number, and that it exists
+	let validation = response && isNaN(response) ? true : 'This response is required! Try again!'
 	return validation;
 };
-
 // Create a function that sees if the user wants to add a screenshot
 function screenshotYN() {
+    // see if user wants to add a screenshot
     inquirer
         .prompt([
             {
@@ -73,16 +72,15 @@ function screenshotYN() {
             }
         ])
         .then((second) => {
+            // if they want to add a screenshot, we call the screenshot inquiry function
             if (second.wantScreenshot) screenshotInquiry();
-            else {
-                console.log(allData);
-                collaboratorYN();
-            }
+            // otherwise we move on to the next question in the survey
+            else collaboratorYN();
         });
 };
-
 // Create a function that prompts and grabs the screenshot information the user inputs
 function screenshotInquiry() {
+    // prompt user with questions about the screenshot they are adding
     inquirer
         .prompt([
             {
@@ -104,18 +102,20 @@ function screenshotInquiry() {
             }
         ])
         .then((answers) => {
+            // push new screenshot data onto the screeShots array
             screenShots.push([answers.ssReference, answers.ssPath]);
+            // if the user answers yes, we recursively call the function until they have no more screenshots to add
             if (answers.screenshotMore) screenshotInquiry();
             else {
-                console.log(screenShots);
+                // otherwise we move on to the next question in the survey and push the screenShots array onto the allData array
                 allData.push(screenShots);
                 collaboratorYN();
             }
         });
 };
-
-// store collaborator questions in an array
+// Create a function that sees if the user wants to add a collaborator
 function collaboratorYN() {
+    // see if user wants to add a collaborator
     inquirer
         .prompt([
             {
@@ -125,16 +125,15 @@ function collaboratorYN() {
             },
         ])
         .then((third) => {
+            // if they do, we call the collaborator inquiry function
             if (third.collaboratorWant) collaboratorInquiry();
-            else {
-                console.log(allData);
-                assetsYN();
-            }
+            // otherwise we move on to the next question in the survey
+            else assetsYN();
         });
 };
-
 // Create a function that prompts and grabs the collaborator info that the user inputs
 function collaboratorInquiry() {
+    // prompt user with questions about the collaborator they are adding
     inquirer
         .prompt([
             {
@@ -156,17 +155,20 @@ function collaboratorInquiry() {
             }
         ])
         .then((info) => {
+            // push new collaborator data onto the collaborators array
             allCollaborators.push([info.cName, info.cLink]);
+            // if the user answers yes, we recursively call the function until they have no more collaborators to add
             if (info.collaboratorMore) collaboratorInquiry();
+            // otherwise we move on to the next question in the survey and push the collaborators array onto the allData array
             else {
-                console.log(allCollaborators);
                 allData.push(allCollaborators);
                 assetsYN();
             }
         });
 };
-
+// Create a function that sees if the user wants to add an asset
 function assetsYN() {
+    // see if user wants to add an asset
     inquirer
         .prompt([
             {
@@ -176,16 +178,15 @@ function assetsYN() {
             }
         ])
         .then((fourth) => {
+            // if they do, we call the asset inquiry function
             if (fourth.assetWant) assetInquiry();
-            else {
-                console.log(allData);
-                tutorialYN();
-            }
+            // otherwise we move on to the next question in the survey
+            else tutorialYN();
         });
 };
-
 // Create a function that prompts and grabs the info of the assets the user used
 function assetInquiry() {
+    // prompt user with questions about the asset they are adding
     inquirer
         .prompt([
             {
@@ -212,18 +213,21 @@ function assetInquiry() {
                 message: 'Would you like to enter another asset? '
             }
         ])
+        // push new asset data onto the assets array
         .then((description) => {
             allAssets.push([description.assetName, description.assetAuthor, description.assetLink]);
+            // if the user answers yes, we recursively call the function until they have no more assets to add
             if (description.assetMore) assetInquiry();
+            // otherwise we move on to the next question in the survey and push the assets array onto the allData array
             else {
-                console.log(allAssets);
                 allData.push(allAssets);
                 tutorialYN();
             }
         });
 };
-
+// Create a function that sees if the user wants to add a tutorial
 function tutorialYN() {
+    // see if user wants to add a tutorial
     inquirer
         .prompt([
             {
@@ -233,16 +237,15 @@ function tutorialYN() {
             }
         ])
         .then((fifth) => {
+            // if they do, we call the tutorial inquiry function
             if (fifth.tutorialWant) tutorialInquiry();
-            else {
-                console.log(allData);
-                finalQuestions();
-            }
+            // otherwise we move on to the next question in the survey
+            else finalQuestions();
         });
 };
-
 // Create a function that prompts and grabs the tutorial information the user inputs
 function tutorialInquiry() {
+    // prompt user with questions about the tutorial they are adding
     inquirer
         .prompt([
             {
@@ -263,19 +266,21 @@ function tutorialInquiry() {
                 message: 'Would you like to enter another tutorial/guide? '
             }
         ])
+        // push new tutorial data onto the assets array
         .then((reference) => {
             tutorialsArr.push({ref: reference.tutReference, path: reference.tutPath});
+            // if the user answers yes, we recursively call the function until they have no more tutorials to add
             if (reference.tutMore) tutorialInquiry();
+            // otherwise we move on to the final questions in the survey and push the tutorials array onto the allData array
             else {
-                console.log(tutorialsArr);
                 allData.push(tutorialsArr);
                 finalQuestions();
             }
         });
 };
-
-// prompt the user with the final questions needs for the README markdown document
+// Create a function that prompts and grabs, respectively, the final questions and data
 function finalQuestions() {
+    // prompt the user with the final questions needs for the README markdown document
     inquirer
         .prompt([
             {
@@ -334,22 +339,21 @@ function finalQuestions() {
                 validate: validator
             }
         ])
+        // then we take that response, push it on the allData array and call out function to write the file
         .then((sixth) => {
-            console.log(sixth);
             allData.push(sixth);
-            console.log(allData);
+            // calling the generateMArkdown function with all of data passed in, as the second argument
             writeToFile(fileName, generateMarkdown(allData));
         })
 }
-
 // Create a function to initialize app
 function init() {
+    // prompt user with the first set of questions
 	inquirer
         .prompt(questions)
+        // then push that new data onto the allData array and call the next prompt with the screenshotYN function
         .then((first) => {
-			console.log(first);
             allData.push(first);
-            console.log(allData);
             screenshotYN();
 		})
         .catch((error) => {
@@ -357,13 +361,12 @@ function init() {
 			else console.log("We're not sure what went wrong! Restart the console and try again!");
 		});
 }
-
 // Create a function to write README file
 function writeToFile(fileName, data) {
+    // use fs to create a README.md file with the returned data
     fs.writeFile(fileName, `${data}`, (err) => {
         err ? console.log(err) : console.log("It works!")
     })
 }
-
 // Function call to initialize app
 init();
