@@ -1,61 +1,61 @@
 
-# asdasd
+# Title   
 
-## Description
+## Description   
 
-- afasdfasdfasdf
-- asdfasdfasdf
-- asdfasdfasdf
-- asdfasdfasdf
+- The project was inspired by homework   
+- This project was built to finish the homework   
+- This project addresses the need to easily generate a README file   
+- This project taught me a lot   
 
-## Table of Contents
+## Table of Contents   
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 - [Features](#features)
-- [Examples](#Examples)
+- [Examples/Tests](#examples)   
 
-## Installation
+## Installation   
 
-asdfasdfasdfasdf
+- You can install this by installing it   
 
-## Usage
+## Usage   
 
-asdfasdfasdfasdfasdf
+- You need to follow instructions   
 
-Screenshots:
-        ![undefined](undefined)
-            
+Screenshots:   
+![undefined](undefined)   
 
-## Credits
 
-Collaborators:
-        [undefined](undefined)
-            [undefined](undefined)
-            
+## Credits   
 
-Assets:
-        [undefined by undefined](undefined)
-            
+Collaborators:   
++ [undefined](undefined)   
 
-Tutorials:
-        [undefined](undefined)
-            
 
-## License
+Assets:   
++ [undefined by undefined](undefined)   
+               
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Tutorials:   
++ [Tutorial One](Website)   
+               
 
-## Features
+## License   
 
-asdfasdfasdfasdf
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   
 
-## How to Contribute
+## Features   
 
-asdfasdfasdfasdf
+It has a lot of features   
 
-## Examples/Tests
+## How to Contribute   
 
-asdfasdfasdfasdfasdf
+They cannot contribute   
+
+## Examples   
+
+Run it and hope it works bro   
+

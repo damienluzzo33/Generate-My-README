@@ -8,13 +8,12 @@ let renderedT = "";
 // Create function to render screenshots from the user entries
 function renderScreenshots(array) {
     if (array.length !== 0) {
-        renderedSS = renderedSS + `Screenshots:   
+        renderedSS = renderedSS + `Screenshots:
         `
         for (let screenshot of array) {
             let name = screenshot.ssReference;
             let path = screenshot.ssPath;
-            renderedSS = renderedSS + `![${name}](${path})   
-            `
+            renderedSS = renderedSS + `![${name}](${path})`
         }
         return renderedSS;
     };
@@ -22,12 +21,12 @@ function renderScreenshots(array) {
 // Create function to render collaborator data
 function renderCollaborators(array) {
     if (array.length !== 0) {
-        renderedC = renderedC + `Collaborators:   
+        renderedC = renderedC + `Collaborators:
         `
         for (let collaborator of array) {
             let name = collaborator.cName;
             let path = collaborator.cLink;
-            renderedC = renderedC + `+ [${name}](${path})   
+            renderedC = renderedC + `+ [${name}](${path})
             `
         }
         return renderedC;
@@ -36,13 +35,13 @@ function renderCollaborators(array) {
 // Create function to render asset data
 function renderAssets(array) {
     if (array.length !== 0) {
-        renderedA = renderedA + `Assets:   
+        renderedA = renderedA + `Assets:
         `
         for (let asset of array) {
             let name = asset.assetName;
             let author = asset.assetAuthor;
             let path = asset.assetLink;
-            renderedA = renderedA + `+ [${name} by ${author}](${path})   
+            renderedA = renderedA + `+ [${name} by ${author}](${path})
             `
         }
         return renderedA;
@@ -51,12 +50,12 @@ function renderAssets(array) {
 // Create function to render tutorials
 function renderTutorials(array) {
     if (array.length !== 0) {
-        renderedT = renderedT + `Tutorials:   
+        renderedT = renderedT + `Tutorials:
         `
         for (let tutorial of array) {
             let text = tutorial.ref;
             let path = tutorial.path;
-            renderedT = renderedT + `+ [${text}](${path})   
+            renderedT = renderedT + `+ [${text}](${path})
             `
         }
         return renderedT;
@@ -170,7 +169,7 @@ function generateMarkdown(entry) {
 - [Credits](#credits)
 - [License](#license)
 - [Features](#features)
-- [Examples](#Examples)   
+- [Examples/Tests](#examples)   
 
 ## Installation   
 
@@ -202,10 +201,9 @@ ${features}
 
 ${contribution}   
 
-## Examples/Tests   
+## Examples  
 
 ${tests}   
-
 `
 }
 // export the generate markdown function
