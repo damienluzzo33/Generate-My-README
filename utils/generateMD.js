@@ -10,68 +10,66 @@ function renderScreenshots(array) {
     // as long as the array is not empty
     if (array.length !== 0) {
         // add subheader
-        renderedSS = renderedSS + `Screenshots:
-        `
+        renderedSS = renderedSS + `Screenshots:`
         // for each screenshot in the array, extract the data and concat the data to the renderedSS string
         for (let screenshot of array) {
             let name = screenshot.ssReference;
             let path = screenshot.ssPath;
-            renderedSS = renderedSS + `![${name}](${path})`
+            renderedSS = renderedSS + `
+
+![${name}](${path})`
         }
-        return renderedSS;
-    };
+    }
+    return renderedSS;
 };
 // Create function to render collaborator data
 function renderCollaborators(array) {
     // as long as the array is not empty
     if (array.length !== 0) {
         // add subheader
-        renderedC = renderedC + `Collaborators:
-        `
+        renderedC = renderedC + `Collaborators:`
         // for each collaborator in the array, extract the data and concat the data to the renderedC string
         for (let collaborator of array) {
             let name = collaborator.cName;
             let path = collaborator.cLink;
-            renderedC = renderedC + `+ [${name}](${path})
-            `
+            renderedC = renderedC + `
++ [${name}](${path})`
         }
-        return renderedC;
-    };
+    }
+    return renderedC;
 };
 // Create function to render asset data
 function renderAssets(array) {
     // as long as the array is not empty
     if (array.length !== 0) {
         // add subheader
-        renderedA = renderedA + `Assets:
-        `
+        renderedA = renderedA + `Assets:`
         // for each asset in the array, extract the data and concat the data to the renderedA string
         for (let asset of array) {
             let name = asset.assetName;
             let author = asset.assetAuthor;
             let path = asset.assetLink;
-            renderedA = renderedA + `+ [${name} by ${author}](${path})
-            `
+            renderedA = renderedA + `
++ [${name} by ${author}](${path})`
         }
-        return renderedA;
-    };
+    }
+    return renderedA;
 };
 // Create function to render tutorials
 function renderTutorials(array) {
     // as long as the array is not empty
     if (array.length !== 0) {
         // add subheader
-        renderedT = renderedT + `Tutorials:
-        `
+        renderedT = renderedT + `Tutorials:`
         // for each tutorial in the array, extract the data and concat the data to the renderedT string
         for (let tutorial of array) {
             let text = tutorial.ref;
             let path = tutorial.path;
-            renderedT = renderedT + `+ [${text}](${path})
-            `
+            renderedT = renderedT + `
++ [${text}](${path})`
         }
-        return renderedT;
-    };
+    }
+    return renderedT;
 };
 // Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -141,12 +139,12 @@ function renderLicenseBadge(license) {
 // Create a function to generate markdown text for README
 function generateMarkdown(entry) {
     // Break apart the returned array of data
-    var q1 = entry[0];
-    var q2 = entry[1];
-    var q3 = entry[2];
-    var q4 = entry[3];
-    var q5 = entry[4];
-    var q6 = entry[5];
+    var q1 = entry.firstQuestions;
+    var q2 = entry.screenshots;
+    var q3 = entry.collaborators;
+    var q4 = entry.assets;
+    var q5 = entry.tutorials;
+    var q6 = entry.finalQuestions;
     // Parse the data from the user entry and reassign global variables to appropriate piece of entry data
     title = q1.title;
     description1 = q1.description1;
@@ -165,57 +163,57 @@ function generateMarkdown(entry) {
     tests = q6.tests;
     // return the dynamic data using variables assigned above
     return `
-# ${title}   
+# ${title}
 
-## Description   
+## Description
 
-- ${description1}   
-- ${description2}   
-- ${description3}   
-- ${description4}   
+- ${description1}
+- ${description2}
+- ${description3}
+- ${description4}
 
-## Table of Contents   
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
 - [Features](#features)
-- [Examples/Tests](#examples)   
+- [Examples/Tests](#examples)
 
-## Installation   
+## Installation
 
-- ${installation}   
+- ${installation}
 
-## Usage   
+## Usage
 
-- ${usage}   
+- ${usage}
 
-${renderedSS}   
+${renderedSS}
 
-## Credits   
+## Credits
 
-${collaboratorData}   
+${collaboratorData}
 
-${assetsData}   
+${assetsData}
 
-${tutorialsData}   
+${tutorialsData}
 
-## License   
+## License
 
-${license}   
+${license}
 
-## Features   
+## Features
 
-${features}   
+${features}
 
-## How to Contribute   
+## How to Contribute
 
-${contribution}   
+${contribution}
 
-## Examples  
+## Examples
 
-${tests}   
+${tests}
 `
 }
 // export the generate markdown function

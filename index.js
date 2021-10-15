@@ -8,7 +8,14 @@ let screenShots = [];
 let allCollaborators = [];
 let allAssets = [];
 let tutorialsArr = [];
-let allData = [];
+let allData = {
+    firstQuestions: {},
+    screenshots: [],
+    collaborators: [],
+    assets: [],
+    tutorials: [],
+    finalQuestions: {}
+};
 // define first set of questions to be passed in when init function runs inquirer.prompt()
 const questions = [
 	{
@@ -108,7 +115,7 @@ function screenshotInquiry() {
             if (answers.screenshotMore) screenshotInquiry();
             else {
                 // otherwise we move on to the next question in the survey and push the screenShots array onto the allData array
-                allData.push(screenShots);
+                allData.screenshots = screenShots;
                 collaboratorYN();
             }
         });
@@ -161,7 +168,7 @@ function collaboratorInquiry() {
             if (info.collaboratorMore) collaboratorInquiry();
             // otherwise we move on to the next question in the survey and push the collaborators array onto the allData array
             else {
-                allData.push(allCollaborators);
+                allData.collaborators = allCollaborators;
                 assetsYN();
             }
         });
@@ -220,7 +227,7 @@ function assetInquiry() {
             if (description.assetMore) assetInquiry();
             // otherwise we move on to the next question in the survey and push the assets array onto the allData array
             else {
-                allData.push(allAssets);
+                allData.assets = allAssets;
                 tutorialYN();
             }
         });
@@ -273,7 +280,7 @@ function tutorialInquiry() {
             if (reference.tutMore) tutorialInquiry();
             // otherwise we move on to the final questions in the survey and push the tutorials array onto the allData array
             else {
-                allData.push(tutorialsArr);
+                allData.tutorials = tutorialsArr;
                 finalQuestions();
             }
         });
@@ -341,7 +348,7 @@ function finalQuestions() {
         ])
         // then we take that response, push it on the allData array and call out function to write the file
         .then((sixth) => {
-            allData.push(sixth);
+            allData.finalQuestions = sixth;
             // calling the generateMArkdown function with all of data passed in, as the second argument
             writeToFile(fileName, generateMarkdown(allData));
         })
@@ -353,7 +360,7 @@ function init() {
         .prompt(questions)
         // then push that new data onto the allData array and call the next prompt with the screenshotYN function
         .then((first) => {
-            allData.push(first);
+            allData.firstQuestions = first;
             screenshotYN();
 		})
         .catch((error) => {
