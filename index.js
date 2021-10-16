@@ -8,12 +8,14 @@ let screenShots = [];
 let allCollaborators = [];
 let allAssets = [];
 let tutorialsArr = [];
+let allFeatures = [];
 let allData = {
     firstQuestions: {},
     screenshots: [],
     collaborators: [],
     assets: [],
     tutorials: [],
+    projectFeatures: [],
     finalQuestions: {}
 };
 // define first set of questions to be passed in when init function runs inquirer.prompt()
@@ -281,10 +283,34 @@ function tutorialInquiry() {
             // otherwise we move on to the final questions in the survey and push the tutorials array onto the allData array
             else {
                 allData.tutorials = tutorialsArr;
-                finalQuestions();
+                featureInquiry();
             }
         });
 };
+// Create a function that prompts and grabs the features the user used, and let them add as many as they want 
+function featureInquiry() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'features',
+                message: 'Explain the current features of your project one feature at a time (you will be prompted with the option to enter more)?',
+                validate: validator
+            },
+            {
+                type: "confirm",
+                name: "moreFeatures",
+                message: "Would you like to add another feature? "
+            }
+        ]).then((feature) => {
+            allFeatures.push({feat: feature.features})
+            if (feature.moreFeatures) featureInquiry();
+            else {
+                allData.projectFeatures = allFeatures;
+                finalQuestions();
+            } 
+        })
+}
 // Create a function that prompts and grabs, respectively, the final questions and data
 function finalQuestions() {
     // prompt the user with the final questions needs for the README markdown document
@@ -326,12 +352,6 @@ function finalQuestions() {
                     "Zlib"
                 ],
                 default: "MIT"
-            },
-            {
-                type: 'input',
-                name: 'features',
-                message: 'Explain the current features of your project one feature at a time (you will be prompted with the option to enter more)?',
-                validate: validator
             },
             {
                 type: 'input',

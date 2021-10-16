@@ -5,6 +5,7 @@ let renderedSS = "";
 let renderedA = "";
 let renderedC = "";
 let renderedT = "";
+let renderedF = "";
 // Create function to render screenshots from the user entries
 function renderScreenshots(array) {
     // as long as the array is not empty
@@ -13,14 +14,15 @@ function renderScreenshots(array) {
         renderedSS = renderedSS + `Screenshots:`
         // for each screenshot in the array, extract the data and concat the data to the renderedSS string
         for (let screenshot of array) {
-            let name = screenshot.ssReference;
-            let path = screenshot.ssPath;
+            let name = screenshot[0];
+            let path = screenshot[1];
             renderedSS = renderedSS + `
 
 ![${name}](${path})`
         }
+        return renderedSS;
     }
-    return renderedSS;
+    else return renderedSS;
 };
 // Create function to render collaborator data
 function renderCollaborators(array) {
@@ -30,13 +32,15 @@ function renderCollaborators(array) {
         renderedC = renderedC + `Collaborators:`
         // for each collaborator in the array, extract the data and concat the data to the renderedC string
         for (let collaborator of array) {
-            let name = collaborator.cName;
-            let path = collaborator.cLink;
+            let name = collaborator[0];
+            let path = collaborator[1];
             renderedC = renderedC + `
+
 + [${name}](${path})`
         }
+        return renderedC;
     }
-    return renderedC;
+    else return renderedC;
 };
 // Create function to render asset data
 function renderAssets(array) {
@@ -46,14 +50,16 @@ function renderAssets(array) {
         renderedA = renderedA + `Assets:`
         // for each asset in the array, extract the data and concat the data to the renderedA string
         for (let asset of array) {
-            let name = asset.assetName;
-            let author = asset.assetAuthor;
-            let path = asset.assetLink;
+            let name = asset[0];
+            let author = asset[1];
+            let path = asset[2];
             renderedA = renderedA + `
+
 + [${name} by ${author}](${path})`
         }
+        return renderedA;
     }
-    return renderedA;
+    else return renderedA;
 };
 // Create function to render tutorials
 function renderTutorials(array) {
@@ -66,11 +72,28 @@ function renderTutorials(array) {
             let text = tutorial.ref;
             let path = tutorial.path;
             renderedT = renderedT + `
+
 + [${text}](${path})`
         }
+        return renderedT;
     }
-    return renderedT;
+    else return renderedT;
 };
+
+function renderFeatures(array) {
+    // as long as the array is not empty
+    if (array.length !== 0) {
+        // for each tutorial in the array, extract the data and concat the data to the renderedT string
+        for (let feature of array) {
+            let text = feature.feat;
+            renderedF = renderedF + `
+
++ ${text}`
+        }
+        return renderedF;
+    }
+    else return renderedF;
+}
 // Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -144,7 +167,8 @@ function generateMarkdown(entry) {
     var q3 = entry.collaborators;
     var q4 = entry.assets;
     var q5 = entry.tutorials;
-    var q6 = entry.finalQuestions;
+    var q6 = entry.projectFeatures;
+    var q7 = entry.finalQuestions;
     // Parse the data from the user entry and reassign global variables to appropriate piece of entry data
     title = q1.title;
     description1 = q1.description1;
@@ -157,13 +181,12 @@ function generateMarkdown(entry) {
     collaboratorData = renderCollaborators(q3);
     assetsData = renderAssets(q4);
     tutorialsData = renderTutorials(q5);
-    license = renderLicenseBadge(q6.license);
-    features = q6.features;
-    contribution = q6.howOthersContribute;
-    tests = q6.tests;
+    license = renderLicenseBadge(q7.license);
+    features = renderFeatures(q6);
+    contribution = q7.howOthersContribute;
+    tests = q7.tests;
     // return the dynamic data using variables assigned above
-    return `
-# ${title}
+    return `# ${title}
 
 ## Description
 
