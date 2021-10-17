@@ -1,3 +1,57 @@
+README PROMPT ANSWERS FOR THE SCREENCASTIFY VIDEO
+
+
+Generate My README
+
+Every single coding project and assignment needs a README page. 
+
+This README Generator was created to make the process of creating a professional README smooth and simple for anyone regardless of your coding skills. 
+
+Markdown skills are not required while using this app... all you have to do is launch the app in your console, answer some questions, and let the magic happen. Sick of the endless repetition and the constant need to reference the markdown documentation? Then this is the app for you.
+
+Creating a README Generator was extremely fun and rewarding, so if you have any further suggestions of improvement to the application, please feel free to clone it down and transform it into YOUR go-to README generator.
+
+To install the app, simply clone this repository down to your local machine.
+
+To use the application, all you have to do is navigate to the cloned down repository, run "npm i" to get the necessary node modules, and then initiate the application by running "node index.js".
+
+App Running In Visual Studio Code
+utils/Screenshot-Generate-My-README.png
+
+Collaborators
+
+Xander (my dog)
+https://www.github.com/xanderThePups
+
+Oz (my cat)
+https://www.github.com/ozTheCat
+
+inquirer
+Simon Boudrias
+https://github.com/SBoudrias/Inquirer.js
+
+How To Use Inquirer.js
+https://javascript.plainenglish.io/how-to-inquirer-js-c10a4e05ef1f
+
+User is able to submit responses to various prompts that will be used to generate a README.md document
+
+Prompts are dynamic and allow the user to enter as many screenshots, collaborators, tutorials, and features as they want to
+
+The README that is generated is properly formatted and ready for use immediately after the user completes all prompted questions
+
+MIT license
+
+If you would like to contribute to this README Generator project, please feel free to clone or fork this repository and implement desired improvements. Once improvements have been made and app has been tested properly, please feel free to send me a message on github with a short summary of the changes you've made and I will invite you to be a collaborator.
+
+Validators are in place to prevent you from inputting incorrect response types, so all you have to do to use this application is follow the prompts and submit your responses to the questions.
+
+
+
+
+
+
+LICENSE DATA
+
 Apache
 Apache 2.0 License
 License
@@ -157,29 +211,3 @@ Zlib
 The zlib/libpng License
 License: Zlib
 [![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)
-
-
-
-Generate My README
-
-Every single coding project and assignment needs a README page. 
-
-This README Generator was created to make the process of creating a professional README smooth and simple for anyone regardless of your coding skills. 
-
-Markdown skills are not required while using this app... all you have to do is launch the app in your console, answer some questions, and let the magic happen. Sick of the endless repetition and the constant need to reference the markdown documentation? Then this is the app for you.
-
-Creating a README Generator was extremely fun and rewarding, so if you have any further suggestions of improvement to the application, please feel free to clone it down and transform it into YOUR go-to README generator.
-
-To run the app, simply clone this repository down to 
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. 
-
-Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum.
-
-Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi iusto libero magni deleniti quod quam consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-doloremque. 
-
-Quaerat provident commodi consectetur veniam similique ad earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo  fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam quasi aliquam eligendi, placeat qui corporis!
-
-Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi iusto libero magni deleniti quod quam consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-doloremque. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat, temporibus enim commodi iusto libero magni deleniti quod quam consequuntur! Commodi minima excepturi repudiandae velit hic maxime doloremque. 

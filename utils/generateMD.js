@@ -79,7 +79,7 @@ function renderTutorials(array) {
     }
     else return renderedT;
 };
-
+// create function to render the features the user chose to include
 function renderFeatures(array) {
     // as long as the array is not empty
     if (array.length !== 0) {
