@@ -1,5 +1,5 @@
 // Define global variable
-let title, description1, description2, description3, description4, installation, usage, license, features, contribution, tests, screenshotData, collaboratorData, assetsData, tutorialsData;
+let title, description1, description2, description3, description4, installation, usage, license, features, contribution, tests, screenshotData, collaboratorData, assetsData, tutorialsData; 
 // Set rendered variables to be empty strings
 let renderedSS = "";
 let renderedA = "";
@@ -191,8 +191,11 @@ function generateMarkdown(entry) {
 ## Description
 
 - ${description1}
+
 - ${description2}
+
 - ${description3}
+
 - ${description4}
 
 ## Table of Contents

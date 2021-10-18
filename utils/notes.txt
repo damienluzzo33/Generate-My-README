@@ -1,6 +1,5 @@
 README PROMPT ANSWERS FOR THE SCREENCASTIFY VIDEO
 
-
 Generate My README
 
 Every single coding project and assignment needs a README page. 
@@ -17,8 +16,6 @@ To use the application, all you have to do is navigate to the cloned down reposi
 
 App Running In Visual Studio Code
 utils/Screenshot-Generate-My-README.png
-
-Collaborators
 
 Xander (my dog)
 https://www.github.com/xanderThePups
