@@ -1,5 +1,5 @@
 // Define global variable
-let title, description1, description2, description3, description4, installation, usage, license, features, contribution, tests, screenshotData, collaboratorData, assetsData, tutorialsData; 
+let title, description1, description2, description3, description4, installation, usage, license, features, contribution, tests, collaboratorData, assetsData, tutorialsData, licenseName;
 // Set rendered variables to be empty strings
 let renderedSS = "";
 let renderedA = "";
@@ -182,6 +182,7 @@ function generateMarkdown(entry) {
     assetsData = renderAssets(q4);
     tutorialsData = renderTutorials(q5);
     license = renderLicenseBadge(q7.license);
+    licenseName = q7.license;
     features = renderFeatures(q6);
     contribution = q7.howOthersContribute;
     tests = q7.tests;
@@ -209,6 +210,8 @@ function generateMarkdown(entry) {
 
 ## Installation
 
+- ${license} License
+
 - ${installation}
 
 ## Usage
@@ -227,7 +230,7 @@ ${tutorialsData}
 
 ## License
 
-${license}
+${licenseName}
 
 ## Features
 

@@ -23,6 +23,8 @@ Creating a README Generator was extremely fun and rewarding, so if you have any 
 
 ## Installation
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 - To install the app, simply clone this repository down to your local machine.
 
 ## Usage
@@ -47,7 +49,7 @@ Tutorials:
 
 ## License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+MIT
 
 ## Features
 
