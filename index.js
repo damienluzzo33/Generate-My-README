@@ -69,6 +69,12 @@ function validator(response) {
 	let validation = response && isNaN(response) ? true : 'This response is required! Try again!'
 	return validation;
 };
+// create function for Y or N validation for boolean responses
+function validatorBoolean(response) {
+    // make sure the lowercase response is a "y" or an "n" 
+    let validation = response && isNaN(response) && (response.toLowerCase() === 'y' || response.toLowerCase() === 'n') ? true : "This response is required and you need to answer with a 'y' or an 'n'. Try again!"
+    return validation;
+}
 // Create a function that sees if the user wants to add a screenshot
 function screenshotYN() {
     // see if user wants to add a screenshot
@@ -78,6 +84,7 @@ function screenshotYN() {
                 type: 'confirm',
                 name: 'wantScreenshot',
                 message: 'Would you like to add screenshots of your project? ',
+                validate: validatorBoolean
             }
         ])
         .then((second) => {
@@ -107,7 +114,8 @@ function screenshotInquiry() {
             {
                 type: 'confirm',
                 name: 'screenshotMore',
-                message: 'Would you like to enter another screenshot? '
+                message: 'Would you like to enter another screenshot? ',
+                validate: validatorBoolean
             }
         ])
         .then((answers) => {
@@ -130,7 +138,8 @@ function collaboratorYN() {
             {
                 type: 'confirm',
                 name: 'collaboratorWant',
-                message: 'Did you work with any other developers/collaborators on this project? '
+                message: 'Did you work with any other developers/collaborators on this project? ',
+                validate: validatorBoolean
             },
         ])
         .then((third) => {
@@ -160,7 +169,8 @@ function collaboratorInquiry() {
             {
                 type: 'confirm',
                 name: 'collaboratorMore',
-                message: 'Are there any more collaborators that you would like to add? '
+                message: 'Are there any more collaborators that you would like to add? ',
+                validate: validatorBoolean
             }
         ])
         .then((info) => {
@@ -183,7 +193,8 @@ function assetsYN() {
             {
                 type: 'confirm',
                 name: 'assetWant',
-                message: 'Did you use any third-party assets to make this project? '
+                message: 'Did you use any third-party assets to make this project? ',
+                validate: validatorBoolean
             }
         ])
         .then((fourth) => {
@@ -219,7 +230,8 @@ function assetInquiry() {
             {
                 type: 'confirm',
                 name: 'assetMore',
-                message: 'Would you like to enter another asset? '
+                message: 'Would you like to enter another asset? ',
+                validate: validatorBoolean
             }
         ])
         // push new asset data onto the assets array
@@ -242,7 +254,8 @@ function tutorialYN() {
             {
                 type: 'confirm',
                 name: 'tutorialWant',
-                message: 'Did you utilize any tutorials or guides to complete this project? '
+                message: 'Did you utilize any tutorials or guides to complete this project? ',
+                validate: validatorBoolean
             }
         ])
         .then((fifth) => {
@@ -272,7 +285,8 @@ function tutorialInquiry() {
             {
                 type: 'confirm',
                 name: 'tutMore',
-                message: 'Would you like to enter another tutorial/guide? '
+                message: 'Would you like to enter another tutorial/guide? ',
+                validate: validatorBoolean
             }
         ])
         // push new tutorial data onto the assets array
@@ -300,7 +314,8 @@ function featureInquiry() {
             {
                 type: "confirm",
                 name: "moreFeatures",
-                message: "Would you like to add another feature? "
+                message: "Would you like to add another feature? ",
+                validate: validatorBoolean
             }
         ]).then((feature) => {
             allFeatures.push({feat: feature.features})
