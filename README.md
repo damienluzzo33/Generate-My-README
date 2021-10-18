@@ -49,7 +49,7 @@ Tutorials:
 
 ## License
 
-MIT
++ MIT
 
 ## Features
 

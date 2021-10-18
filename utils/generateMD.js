@@ -230,7 +230,7 @@ ${tutorialsData}
 
 ## License
 
-${licenseName}
++ ${licenseName}
 
 ## Features
 
