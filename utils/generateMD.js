@@ -1,5 +1,5 @@
 // Define global variable
-let title, description1, description2, description3, description4, installation, usage, license, features, contribution, tests, collaboratorData, assetsData, tutorialsData, licenseName;
+let title, description1, description2, description3, description4, installation, usage, license, features, contribution, tests, collaboratorData, assetsData, tutorialsData, licenseName, email, github;
 // Set rendered variables to be empty strings
 let renderedSS = "";
 let renderedA = "";
@@ -177,6 +177,8 @@ function generateMarkdown(entry) {
     description4 = q1.description4;
     installation = q1.installation;
     usage = q1.usage;
+    github = q1.github;
+    email = q1.email;
     screenshotData = renderScreenshots(q2);
     collaboratorData = renderCollaborators(q3);
     assetsData = renderAssets(q4);
@@ -243,6 +245,12 @@ ${contribution}
 ## Examples
 
 ${tests}
+
+## Questions
+
+Connect with me on GitHub: [${github}](https://www.github.com/${github})
+
+Shoot me an email: [${email}](mailto:${email})
 `
 }
 // export the generate markdown function

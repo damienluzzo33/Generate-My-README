@@ -2,7 +2,7 @@
 let inquirer = require('inquirer');
 let generateMarkdown = require('./utils/generateMD');
 let fs = require('fs');
-let fileName = "README.md";
+let fileName = "newREADME.md";
 // Define global variables
 let screenShots = [];
 let allCollaborators = [];
@@ -60,6 +60,18 @@ const questions = [
 		type: 'input',
 		name: 'usage',
 		message: 'Provide an explanation for how to use your app:',
+		validate: validator
+    },
+    {
+		type: 'input',
+		name: 'email',
+		message: 'Provide your email so users can contact you with questions about the app: ',
+		validate: validator
+    },
+    {
+		type: 'input',
+		name: 'github',
+		message: 'Provide your GitHub username so users can connect with you: ',
 		validate: validator
     }
 ];

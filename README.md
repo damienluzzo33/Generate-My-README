@@ -66,3 +66,9 @@ If you would like to contribute to this README Generator project, please feel fr
 ## Examples
 
 Validators are in place to prevent you from inputting incorrect response types, so all you have to do to use this application is follow the prompts and submit your responses to the questions.
+
+## Questions
+
+Connect with me on GitHub: [damienluzzo33](https://www.github.com/damienluzzo33)
+
+Shoot me an email: [damienluzzo33@gmail.com](mailto:damienluzzo33@gmail.com)
